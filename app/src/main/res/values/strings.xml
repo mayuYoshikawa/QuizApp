@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">QuizApp</string>
+    <string name="quiz">クイズ</string>
+    <string name="answer">解答</string>
+    <string name="createQuiz">問題作成</string>
+    <string name="QuizStart">クイズ開始</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="question1">1問</string>
+    <string name="question5">5問</string>
+    <string name="question10">10問</string>
+    <string name="question">問題</string>
+    <string name="hint_question">ここに書いてね</string>
+    <string name="fake_answer">フェイクの答え</string>
+    <string name="hint_answer">正解を書いてね</string>
+    <string name="hint_fake1">偽物の答え1</string>
+    <string name="hint_fake2">偽物の答え2</string>
+    <string name="hint_fake3">偽物の答え3</string>
+    <string name="select_number_question">問題数を選択してください</string>
+    <string name="top_text">TOP</string>
 </resources>
