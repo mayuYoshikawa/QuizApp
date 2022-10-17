@@ -10,7 +10,7 @@
         android:id="@+id/select_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30sp"
+        android:layout_marginTop="30dp"
         android:text="@string/select_number_question"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,7 +21,6 @@
         android:id="@+id/radio_question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10sp"
         app:layout_constraintBottom_toTopOf="@+id/quiz_start_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,4 +55,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

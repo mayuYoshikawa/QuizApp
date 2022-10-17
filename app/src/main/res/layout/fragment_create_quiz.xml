@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="fragment.CreateQuiz">
+    tools:context="fragment.CreateQuizFragment">
 
     <TextView
         android:id="@+id/create_quiz_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30sp"
+        android:layout_marginTop="30dp"
         android:text="@string/createQuiz"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,10 +30,11 @@
 
     <EditText
         android:id="@+id/input_question_edit_text"
-        android:layout_width="200sp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:hint="@string/hint_question"
         android:inputType="text"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@id/input_answer_edit_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/create_quiz_text" />
@@ -51,10 +52,11 @@
 
     <EditText
         android:id="@+id/input_answer_edit_text"
-        android:layout_width="200sp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:hint="@string/hint_answer"
         android:inputType="text"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/input_fake_1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/input_question_edit_text" />
@@ -73,29 +75,32 @@
 
     <EditText
         android:id="@+id/input_fake_1"
-        android:layout_width="200sp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:hint="@string/hint_fake1"
         android:inputType="text"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/create_quiz_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/input_answer_edit_text" />
 
     <EditText
         android:id="@+id/input_fake_2"
-        android:layout_width="200sp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:hint="@string/hint_fake2"
         android:inputType="text"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/input_fake_1" />
 
     <EditText
         android:id="@+id/input_fake_3"
-        android:layout_width="200sp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:hint="@string/hint_fake3"
         android:inputType="text"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/input_fake_2" />
 
@@ -108,6 +113,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/input_fake_text" />
+        app:layout_constraintTop_toBottomOf="@id/input_fake_3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

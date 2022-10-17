@@ -13,9 +13,9 @@
     <string name="hint_question">ここに書いてね</string>
     <string name="fake_answer">フェイクの答え</string>
     <string name="hint_answer">正解を書いてね</string>
-    <string name="hint_fake1">偽物の答え1</string>
-    <string name="hint_fake2">偽物の答え2</string>
-    <string name="hint_fake3">偽物の答え3</string>
+    <string name="hint_fake1">フェイク1</string>
+    <string name="hint_fake2">フェイク2</string>
+    <string name="hint_fake3">フェイク3</string>
     <string name="select_number_question">問題数を選択してください</string>
     <string name="top_text">TOP</string>
 </resources>
