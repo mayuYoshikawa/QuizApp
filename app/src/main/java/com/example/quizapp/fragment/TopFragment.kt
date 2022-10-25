@@ -43,8 +43,6 @@ class TopFragment : Fragment() {
         }
         //問題作成ボタン
         binding.topCreateQuizButton.setOnClickListener {
-
-
             findNavController().navigate(R.id.action_topFragment_to_createQuiz)
         }
     }
