@@ -36,4 +36,8 @@ class CreateQuizFragment : Fragment() {
             findNavController().navigate(R.id.action_topFragment_to_selectFragment)
         }
     }
+    override fun onDestroyView(){
+        super.onDestroyView()
+        _binding = null
+    }
 }
