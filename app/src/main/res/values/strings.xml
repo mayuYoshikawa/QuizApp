@@ -18,4 +18,5 @@
     <string name="hint_fake3">フェイク3</string>
     <string name="select_number_question">問題数を選択してください</string>
     <string name="top_text">TOP</string>
+    <string name="all_quiz">問題一覧</string>
 </resources>

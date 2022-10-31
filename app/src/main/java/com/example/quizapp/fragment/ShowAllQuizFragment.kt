@@ -1,40 +1,102 @@
 package com.example.quizapp.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.quizapp.R
+import com.example.quizapp.SpreadSheets
+import com.example.quizapp.SpreadSheetsData
+import com.example.quizapp.databinding.FragmentShowAllQuizBinding
+import com.example.quizapp.base_url
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ShowAllQuizFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ShowAllQuizFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
+    private var _binding : FragmentShowAllQuizBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_show_all_quiz, container, false)
+        _binding = FragmentShowAllQuizBinding.inflate(inflater,container,false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        getData()
+
+        binding.showAllCreateQuizButton.setOnClickListener {
+            findNavController().navigate(R.id.action_showAllQuizFragment_to_createQuizFragment)
+        }
+    }
+    private fun getData(){
+        // Retrofit のインスタンスを作成
+        val retrofit = Retrofit.Builder()
+            .baseUrl(base_url)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        val service: SpreadSheets = retrofit.create(SpreadSheets::class.java)
+        val call: Call<SpreadSheetsData> = service.getQuiz()
+
+        // Callクラスのenqueueメソッドを使って非同期でのリクエスト
+        call.enqueue(object : Callback<SpreadSheetsData> {
+
+            override fun onFailure(call: Call<SpreadSheetsData>, t: Throwable) {
+                Log.e("error onFailure", t.message.toString())
+            }
+
+            override fun onResponse(
+                call: Call<SpreadSheetsData>,
+                response: Response<SpreadSheetsData>
+            ) {
+                if (response.isSuccessful) {
+                    val quizList: SpreadSheetsData = response.body()!!
+
+                    display(quizList)
+
+                    Log.i("Response", "$quizList")
+                } else {
+                    Log.e("error onResponse", "${response.code()}")
+                }
+            }
+        })
+    }
+
+    // quizを全て表示させる
+    private fun display(showAllQuizList: SpreadSheetsData) {
+        val allQuiz = mutableListOf<String>()
+        for (i in showAllQuizList.values.indices){
+            if(i > 0){
+                allQuiz += listOf(showAllQuizList.values[i][0])
+            }
+        }
+        binding.showAllQuizList.adapter = ArrayAdapter(
+            requireContext(),
+            android.R.layout.simple_list_item_1,
+            allQuiz
+        )
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

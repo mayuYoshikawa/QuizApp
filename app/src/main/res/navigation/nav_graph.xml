@@ -13,9 +13,10 @@
         <action
             android:id="@+id/action_topFragment_to_selectFragment"
             app:destination="@id/selectFragment" />
+
         <action
-            android:id="@+id/action_topFragment_to_createQuiz"
-            app:destination="@id/createQuizFragment" />
+            android:id="@+id/action_topFragment_to_showAllQuizFragment"
+            app:destination="@id/showAllQuizFragment" />
     </fragment>
 
     <fragment
@@ -26,6 +27,15 @@
     <fragment
         android:id="@+id/createQuizFragment"
         android:name="com.example.quizapp.fragment.CreateQuizFragment"
-        android:label="CreateQuiz"
+        android:label="CreateQuizFragment"
         tools:layout="@layout/fragment_create_quiz" />
+    <fragment
+        android:id="@+id/showAllQuizFragment"
+        android:name="com.example.quizapp.fragment.ShowAllQuizFragment"
+        android:label="ShowAllQuizFragment"
+        tools:layout="@layout/fragment_show_all_quiz">
+        <action
+            android:id="@+id/action_showAllQuizFragment_to_createQuizFragment"
+            app:destination="@id/createQuizFragment" />
+    </fragment>
 </navigation>
